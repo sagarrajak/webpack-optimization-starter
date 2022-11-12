@@ -1,3 +1,5 @@
+import styles from './notification.module.css';
+
 export function renderTodos(todos) {
     const renderedItemArray = todos.map(function (todo) {
         const className = todo.completed ? 'completed' : ''
@@ -18,6 +20,7 @@ export function renderTodos(todos) {
 
 export function clearNewTodoInput() {
     document.querySelector('.new-todo').value = ''
+    showNotification();
 }
 
 export function getTodoId(element) {
@@ -26,4 +29,14 @@ export function getTodoId(element) {
         || element.parentNode.dataset.id
         || element.parentNode.parentNode.dataset.id
     , 10)
+}
+
+
+function showNotification() {
+    let notificationEle = `<div class="${styles.notification}">New Todo Added</div>`;
+    document.body.innerHTML += notificationEle;
+    setTimeout(() => {
+        let notification = document.querySelector(`.${styles.notification}`);
+        notification.parentNode.removeChild(notification);
+    },2000);
 }

@@ -7,7 +7,7 @@ module.exports = {
     entry: "./src/js/index.js",
     output: {
       path: path.resolve(__dirname, "../dist"),
-      filename: "[contenthash].bundle.js",
+      filename: "js/[contenthash].bundle.js",
       clean: true
     },
     optimization: {
@@ -25,7 +25,7 @@ module.exports = {
     },
     plugins: [
       new MiniCssExtractPlugin({
-        filename: '[name].[contenthash:12].css' 
+        filename: 'css/[name].[contenthash:12].css' 
       }),
       new HtmlWebpackPlugin({
         template: "src/template.html",

@@ -12,7 +12,21 @@ module.exports = {
     clean: true,
   },
   optimization: {
-    minimizer: [new CssMinimizerPlugin()],
+    minimize: true,
+    minimizer: [
+      `...`,
+      new CssMinimizerPlugin({
+      // minify: CssMinimizerPlugin.cssoMinify,
+      parallel: true,
+      minimizerOptions: {
+        preset: [
+          "default",
+          {
+            discardComments: { removeAll: true },
+          },
+        ],
+      }
+    })],
   },
   module: {
     rules: [
@@ -33,6 +47,10 @@ module.exports = {
             }
           },
         ],
+      },
+      {
+        test: /\.less$/i,
+        use: [MiniCssExtractPlugin.loader, "css-loader", "less-loader"],
       },
     ],
   },

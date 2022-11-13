@@ -33,7 +33,7 @@ module.exports = {
       {
         test: /\.css$/i,
         exclude: /\.module\.css$/i,
-        use: [MiniCssExtractPlugin.loader, "css-loader"],
+        use: [MiniCssExtractPlugin.loader, "css-loader", "postcss-loader"],
       },
       {
         test: /\.css$/i,
@@ -46,15 +46,16 @@ module.exports = {
               modules: true,
             }
           },
+          "postcss-loader"
         ],
       },
       {
         test: /\.less$/i,
-        use: [MiniCssExtractPlugin.loader, "css-loader", "less-loader"],
+        use: [MiniCssExtractPlugin.loader, "css-loader", "postcss-loader", "less-loader"],
       },
       {
         test: /\.scss$/i,
-        use: [MiniCssExtractPlugin.loader, "css-loader", "sass-loader"],
+        use: [MiniCssExtractPlugin.loader, "css-loader", "postcss-loader", "sass-loader"],
       },
     ],
   },

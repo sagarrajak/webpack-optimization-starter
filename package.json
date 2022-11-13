@@ -21,6 +21,7 @@
   },
   "homepage": "https://github.com/vp-online-courses/webpack-optimization-starter#readme",
   "devDependencies": {
+    "autoprefixer": "^10.4.13",
     "css-loader": "^6.7.1",
     "css-minimizer-webpack-plugin": "^4.2.2",
     "cssnano": "^5.1.14",
@@ -29,6 +30,7 @@
     "mini-css-extract-plugin": "^2.6.1",
     "postcss": "^8.4.19",
     "postcss-cli": "^10.0.0",
+    "postcss-loader": "^7.0.1",
     "sass": "^1.56.1",
     "sass-loader": "^13.2.0",
     "scss-loader": "^0.0.1",

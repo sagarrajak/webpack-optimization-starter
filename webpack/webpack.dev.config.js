@@ -3,9 +3,8 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
 
-
 module.exports = {
-  mode: 'development',
+  mode: "development",
   entry: "./src/js/index.js",
   devServer: {
     port: 9000,
@@ -43,9 +42,29 @@ module.exports = {
             loader: "css-loader",
             options: {
               modules: {
-                localIdentName:'[name]__[local]--[hash:base64:5]',
+                localIdentName: "[name]__[local]--[hash:base64:5]",
               },
-            }
+            },
+          },
+        ],
+      },
+      {
+        test: /\.less$/i,
+        use: [MiniCssExtractPlugin.loader, "css-loader", "less-loader"],
+      },
+      {
+        test: /\.scss$/i,
+        use: [
+          MiniCssExtractPlugin.loader,
+          "css-loader",
+          "postcss-loader",
+          {
+            loader: "sass-loader",
+            options: {
+              sassOptions: {
+                quietDeps: true,
+              },
+            },
           },
         ],
       },
@@ -60,4 +79,4 @@ module.exports = {
       title: "My App",
     }),
   ],
-}
+};

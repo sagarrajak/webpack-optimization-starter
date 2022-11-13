@@ -4,7 +4,7 @@ import {
   removeTodoEventHandler,
   toggleTodoEventListener,
 } from "./event-handeler";
-
+import '../styles/vendors.scss';
 import '../styles/index.scss';
 
 window.addEventListener("load", onLoadEventHandler);

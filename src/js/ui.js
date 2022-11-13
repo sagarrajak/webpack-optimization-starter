@@ -33,7 +33,7 @@ export function getTodoId(element) {
 
 
 function showNotification() {
-    let notificationEle = `<div class="${styles.notification}">New Todo Added</div>`;
+    let notificationEle = `<div role="alert" class="alert alert-success ${styles.notification}">New Todo Added</div>`;
     document.body.innerHTML += notificationEle;
     setTimeout(() => {
         let notification = document.querySelector(`.${styles.notification}`);

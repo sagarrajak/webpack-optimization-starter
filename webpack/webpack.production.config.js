@@ -77,6 +77,13 @@ module.exports = {
           },
         ],
       },
+      {
+        test: /\.(png|svg|jpeg|jpg)$/,
+        type: 'asset',
+        generator: {
+          filename: './images/[name].[contenthash:12][ext]'
+        }
+      }
     ],
   },
   plugins: [

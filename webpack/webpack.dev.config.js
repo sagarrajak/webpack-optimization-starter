@@ -2,6 +2,7 @@ const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
+const CopyWebpackPlugin = require("copy-webpack-plugin");
 
 module.exports = {
   mode: "development",
@@ -68,6 +69,13 @@ module.exports = {
           },
         ],
       },
+      {
+        test: /\.(png|svg|jpeg|jpg)$/,
+        type: 'asset',
+        generator: {
+          filename: './images/[name][ext]'
+        }
+      }
     ],
   },
   plugins: [
@@ -77,6 +85,6 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: "src/template.html",
       title: "My App",
-    }),
+    })
   ],
 };

@@ -22,6 +22,7 @@
   "homepage": "https://github.com/vp-online-courses/webpack-optimization-starter#readme",
   "devDependencies": {
     "autoprefixer": "^10.4.13",
+    "copy-webpack-plugin": "^11.0.0",
     "css-loader": "^6.7.1",
     "css-minimizer-webpack-plugin": "^4.2.2",
     "cssnano": "^5.1.14",

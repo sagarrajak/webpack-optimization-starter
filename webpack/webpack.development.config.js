@@ -68,6 +68,13 @@ module.exports = {
           },
         ],
       },
+      {
+        test: /\.(png|svg|jpeg|jpg)$/,
+        type: 'asset',
+        generator: {
+          filename: './images/[name][ext]'
+        }
+      }
     ],
   },
   plugins: [

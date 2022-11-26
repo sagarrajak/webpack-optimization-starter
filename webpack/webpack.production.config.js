@@ -79,11 +79,37 @@ module.exports = {
       },
       {
         test: /\.(png|svg|jpeg|jpg)$/,
-        type: 'asset',
+        type: "asset",
         generator: {
-          filename: './images/[name].[contenthash:12][ext]'
-        }
-      }
+          filename: "./images/[name][ext]",
+        },
+        use: [
+          {
+            loader: "image-webpack-loader",
+            options: {
+              mozjpeg: {
+                progressive: true,
+                quality: 40
+              },
+              // optipng.enabled: false will disable optipng
+              optipng: {
+                enabled: false,
+              },
+              pngquant: {
+                quality: [0.65, 0.9],
+                speed: 4,
+              },
+              gifsicle: {
+                interlaced: false,
+              },
+              // the webp option will enable WEBP
+              webp: {
+                quality: 75,
+              },
+            },
+          },
+        ],
+      },
     ],
   },
   plugins: [

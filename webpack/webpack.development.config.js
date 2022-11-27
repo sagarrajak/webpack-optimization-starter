@@ -11,6 +11,9 @@ module.exports = {
     filename: "js/[contenthash].bundle.js",
     clean: true,
   },
+   resolve: {
+    extensions: ['.ts', '.js']
+  },  
   optimization: {
     minimizer: [
       `...`,
@@ -73,6 +76,13 @@ module.exports = {
         type: 'asset',
         generator: {
           filename: './images/[name][ext]'
+        }
+      },
+      {
+        test: /\.(js|ts)$/,
+        exclude: /node_modules/,
+        use: {
+          loader: 'babel-loader',
         }
       }
     ],

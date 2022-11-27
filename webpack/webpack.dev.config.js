@@ -19,6 +19,9 @@ module.exports = {
       overlay: true,
     },
   },
+  resolve: {
+    extensions: ['.ts', '.js']
+  },
   output: {
     path: path.resolve(__dirname, "../dist"),
     filename: "js/[contenthash].bundle.js",
@@ -74,6 +77,13 @@ module.exports = {
         type: 'asset',
         generator: {
           filename: './images/[name][ext]'
+        }
+      }, 
+      {
+        test: /\.(js|ts)$/,
+        exclude: /node_modules/,
+        use: {
+          loader: 'babel-loader',
         }
       }
     ],
